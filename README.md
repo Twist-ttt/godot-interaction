@@ -1,2 +1,2 @@
 # godot-interaction
-godot procjcet control
+godot procject control
