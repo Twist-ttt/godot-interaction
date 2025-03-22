@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://bh27fq5ex8lc7"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ow6kc"]
+size = Vector3(0.7, 2, 0.8)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ow6kc"]
+albedo_color = Color(0.741176, 0, 0, 1)
+metallic = 0.46
+roughness = 0.5
+emission_enabled = true
+emission = Color(0.513726, 0, 0, 1)
+rim_enabled = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_a6a0u"]
+size = Vector3(0.7, 2, 0.8)
+
+[node name="Player_test" type="CharacterBody3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("BoxShape3D_ow6kc")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+material_override = SubResource("StandardMaterial3D_ow6kc")
+mesh = SubResource("BoxMesh_a6a0u")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-4.07061e-08, 0.364389, -0.931247, 1.5928e-08, 0.931247, 0.364389, 1, 0, -4.37114e-08, -2.87269, 2.71035, 0.00175786)
