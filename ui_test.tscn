@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://dt70r74ob0d36"]
+
+[node name="Control" type="CanvasLayer"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = 576.0
+offset_top = 314.0
+offset_right = 581.0
+offset_bottom = 319.0
+pivot_offset = Vector2(2.5, 2.5)
+color = Color(1, 0, 0, 1)

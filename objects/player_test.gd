@@ -1,5 +1,7 @@
 extends CharacterBody3D
 
+const NAME : StringName = "test_1"
+
 @export var WALK_SPEED : float = 10
 @export var RUN_SPEED : float = 16
 @export var JUMP_VELOCITY : float = 10
@@ -8,6 +10,11 @@ extends CharacterBody3D
 @export var mouse_sensitivity : float = 0.002
 
 @onready var camera_3d: Camera3D = $Camera3D
+@onready var ray_cast_3d: RayCast3D = $Camera3D/RayCast3D
+@onready var collision_shape_3d: CollisionShape3D = $CollisionShape3D
+
+
+
 
 #测试用
 enum State{
@@ -23,15 +30,15 @@ var camera_angle : float
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	
 
 func _input(event: InputEvent) -> void:
-	if event is InputEventMouse:
+	if event is InputEventMouseMotion:
 		rotate_y(-event.relative.x * mouse_sensitivity)
 	
 		camera_angle = camera_angle - event.relative.y * mouse_sensitivity
 		camera_angle = clamp(camera_angle, -PI/2, PI/2)
 		camera_3d.rotation.x = camera_angle
+		ray_cast_3d.global_transform.basis = camera_3d.global_transform.basis
 
 
 func move(delta: float) -> void:
@@ -41,9 +48,10 @@ func move(delta: float) -> void:
 	velocity.z = direction.z * WALK_SPEED
 	
 	velocity.y = velocity.y + GRAVITY * delta
+	move_and_slide()
 	
 func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("move_jump"):
+	if event.is_action_pressed("move_jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 	
 	if event is InputEventKey:
@@ -53,8 +61,10 @@ func _unhandled_input(event: InputEvent) -> void:
 	
 func _physics_process(delta: float) -> void:
 	move(delta)
-	
-	move_and_slide()
+
+
+
+
 
 
 
@@ -63,8 +73,19 @@ func _physics_process(delta: float) -> void:
 
 
 #func tick_physics(state: State, delta: float) -> void:
-	#pass
-
+	#match state:
+		#State.IDLE:
+			#move(delta)
+		#State.WALK:
+#
+		#State.RUNNING:
+#
+		#State.JUMP:
+#
+		#State.FALL:
+#
+		#State.LANDING:
+#
 #func get_next_state(state: State) -> State:
 	#match state:
 		#State.IDLE:
@@ -78,21 +99,21 @@ func _physics_process(delta: float) -> void:
 		#State.FALL:
 #
 		#State.LANDING:
-#
-#
-#
-##主要用来播动画
-#func transition_state(from: State, to: State) -> void:
-	#match to:
-		#State.IDLE:
-			#pass
-		#State.WALK:
-			#pass
-		#State.RUNNING:
-			#pass
-		#State.JUMP:
-			#pass
-		#State.FALL:
-			#pass
-		#State.LANDING:
-			#pass
+##
+##
+##
+###主要用来播动画
+##func transition_state(from: State, to: State) -> void:
+	##match to:
+		##State.IDLE:
+			##pass
+		##State.WALK:
+			##pass
+		##State.RUNNING:
+			##pass
+		##State.JUMP:
+			##pass
+		##State.FALL:
+			##pass
+		##State.LANDING:
+			##pass
