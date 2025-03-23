@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=3 uid="uid://l4mmycy7qjm5"]
+
+[ext_resource type="Script" uid="uid://cuvgnokrra4q0" path="res://scripts/interactRay.gd" id="1_vlmgq"]
+
+[node name="InteractRay" type="RayCast3D"]
+target_position = Vector3(0, 0, -20)
+collision_mask = 4
+script = ExtResource("1_vlmgq")
+
+[node name="Prompt" type="Label" parent="."]
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = 76.0
+offset_bottom = 121.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 1
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 32
+text = "prompt
+[key]"
+horizontal_alignment = 1

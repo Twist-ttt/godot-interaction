@@ -1,9 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://qkkfqdw758fq"]
+[gd_scene load_steps=4 format=3 uid="uid://qkkfqdw758fq"]
 
 [ext_resource type="MeshLibrary" uid="uid://djmkikicn1jbw" path="res://tres/floor_test.tres" id="1_qr3a6"]
 [ext_resource type="PackedScene" uid="uid://bh27fq5ex8lc7" path="res://objects/player_test.tscn" id="2_bvlf0"]
-[ext_resource type="PackedScene" uid="uid://bo6kdhis3f1p5" path="res://objects/npc_test.tscn" id="3_irn66"]
-[ext_resource type="PackedScene" uid="uid://dt70r74ob0d36" path="res://ui_test.tscn" id="4_di04x"]
+[ext_resource type="PackedScene" uid="uid://bctk3s1t347or" path="res://objects/npc_test.tscn" id="3_irn66"]
 
 [node name="level_test" type="Node3D"]
 
@@ -17,11 +16,10 @@ data = {
 metadata/_editor_floor_ = Vector3(0, -3, 0)
 
 [node name="Player_test" parent="." instance=ExtResource("2_bvlf0")]
+transform = Transform3D(0.0188485, 0, -0.999822, 0, 1, 0, 0.999822, 0, 0.0188485, 0, 0, 0)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.97397, 0)
 
 [node name="NPC_test" parent="." instance=ExtResource("3_irn66")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.98016, 0, 0)
-
-[node name="Control" parent="." instance=ExtResource("4_di04x")]

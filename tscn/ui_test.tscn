@@ -8,4 +8,5 @@ offset_top = 314.0
 offset_right = 581.0
 offset_bottom = 319.0
 pivot_offset = Vector2(2.5, 2.5)
+size_flags_horizontal = 4
 color = Color(1, 0, 0, 1)

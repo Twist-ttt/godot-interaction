@@ -1,7 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://bo6kdhis3f1p5"]
+[gd_scene load_steps=6 format=3 uid="uid://bctk3s1t347or"]
 
-[ext_resource type="Script" uid="uid://dsmpkt6il3jyb" path="res://objects/npc_test.gd" id="1_a10xp"]
-[ext_resource type="Script" uid="uid://bfyakth3or0xp" path="res://InteractionComponent.gd" id="2_11ai1"]
+[ext_resource type="Script" uid="uid://c3577huhtkjav" path="res://classes/InteractAble.gd" id="1_a10xp"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fbwhf"]
 size = Vector3(0.7, 2, 0.8)
@@ -21,15 +20,12 @@ rim_enabled = true
 size = Vector3(0.7, 2, 0.8)
 
 [node name="NPC_test" type="CharacterBody3D" groups=["Operable Object"]]
+collision_layer = 4
 script = ExtResource("1_a10xp")
 
 [node name="Area3D" type="Area3D" parent="."]
 collision_layer = 4
 collision_mask = 0
-
-[node name="InteractionComponent" type="Node" parent="Area3D"]
-script = ExtResource("2_11ai1")
-metadata/_custom_type_script = "uid://bfyakth3or0xp"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)

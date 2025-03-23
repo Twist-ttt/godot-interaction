@@ -1,8 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://bh27fq5ex8lc7"]
+[gd_scene load_steps=5 format=3 uid="uid://bh27fq5ex8lc7"]
 
-[ext_resource type="Script" uid="uid://8eyilq4lned1" path="res://scripts/player_test.gd" id="1_3tgmv"]
-[ext_resource type="PackedScene" uid="uid://l4mmycy7qjm5" path="res://tscn/InteractRay.tscn" id="2_avobc"]
-[ext_resource type="PackedScene" uid="uid://dt70r74ob0d36" path="res://tscn/ui_test.tscn" id="3_iuxqa"]
+[ext_resource type="Script" uid="uid://8eyilq4lned1" path="res://objects/player_test.gd" id="1_3tgmv"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ow6kc"]
 size = Vector3(0.7, 2, 0.8)
@@ -20,14 +18,13 @@ size = Vector3(0.7, 2, 0.8)
 
 [node name="Player_test" type="CharacterBody3D" groups=["Operable Object"]]
 collision_layer = 2
+collision_mask = 5
 script = ExtResource("1_3tgmv")
 
 [node name="Head" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
 
 [node name="Camera3D" type="Camera3D" parent="Head"]
-
-[node name="InteractRay" parent="Head/Camera3D" instance=ExtResource("2_avobc")]
+transform = Transform3D(-4.07061e-08, 0.364389, -0.931247, 1.5928e-08, 0.931247, 0.364389, 1, -4.61853e-14, -4.37114e-08, -0.380647, 2.71035, 0.00175786)
 
 [node name="Area3D" type="Area3D" parent="."]
 
@@ -43,11 +40,3 @@ shape = SubResource("BoxShape3D_ow6kc")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 material_override = SubResource("StandardMaterial3D_ow6kc")
 mesh = SubResource("BoxMesh_a6a0u")
-
-[node name="UI" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="Control" parent="UI" instance=ExtResource("3_iuxqa")]
