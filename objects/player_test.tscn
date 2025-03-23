@@ -41,6 +41,6 @@ mesh = SubResource("BoxMesh_a6a0u")
 transform = Transform3D(-4.07061e-08, 0.364389, -0.931247, 1.5928e-08, 0.931247, 0.364389, 1, -4.52971e-14, -4.37114e-08, -0.380647, 2.71035, 0.00175786)
 
 [node name="RayCast3D" type="RayCast3D" parent="Camera3D"]
-target_position = Vector3(0, 0, -10)
+target_position = Vector3(0, 0, -20)
 collision_mask = 4
 script = ExtResource("3_iuxqa")
