@@ -21,7 +21,6 @@ size = Vector3(0.7, 2, 0.8)
 
 [node name="NPC_test" type="CharacterBody3D" groups=["Operable Object"]]
 collision_layer = 4
-script = ExtResource("1_a10xp")
 
 [node name="Area3D" type="Area3D" parent="."]
 collision_layer = 4
@@ -42,3 +41,7 @@ mesh = SubResource("BoxMesh_yyplb")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(-4.07061e-08, 0.364389, -0.931247, 1.5928e-08, 0.931247, 0.364389, 1, 0, -4.37114e-08, -2.87269, 2.71035, 0.00175786)
+
+[node name="InteractAble" type="Node" parent="."]
+script = ExtResource("1_a10xp")
+metadata/_custom_type_script = "uid://c3577huhtkjav"

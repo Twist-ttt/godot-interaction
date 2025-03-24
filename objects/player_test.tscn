@@ -20,6 +20,7 @@ size = Vector3(0.7, 2, 0.8)
 
 [node name="Player_test" type="CharacterBody3D" groups=["Operable Object"]]
 collision_layer = 2
+collision_mask = 5
 script = ExtResource("1_3tgmv")
 
 [node name="Head" type="Node3D" parent="."]
