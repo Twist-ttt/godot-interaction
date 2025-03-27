@@ -11,5 +11,5 @@ Yacklin accepted invitation. Mar 21st, 2025
 
 
 待实现功能：
-[]:更换操作角色
-[]:有限状态机
+[1]更换操作角色
+[2]有限状态机
