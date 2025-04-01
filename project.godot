@@ -15,6 +15,16 @@ run/main_scene="uid://qkkfqdw758fq"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[file_customization]
+
+folder_colors={
+"res://Art/": "red",
+"res://Assets/": "orange",
+"res://Common/": "blue",
+"res://Config/": "yellow",
+"res://Scenes/": "green"
+}
+
 [global_group]
 
 "Operable Object"=""
