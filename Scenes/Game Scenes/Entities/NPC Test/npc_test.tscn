@@ -1,5 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://bctk3s1t347or"]
+[gd_scene load_steps=7 format=3 uid="uid://bctk3s1t347or"]
 
+[ext_resource type="Script" uid="uid://bih1bw6rl7i73" path="res://Scenes/Game Scenes/Entities/NPC Test/npc_test.gd" id="1_6fjjo"]
 [ext_resource type="Script" uid="uid://hoxw4certtso" path="res://Scenes/Tools/Interact Ray/InteractAble.gd" id="1_lrvio"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fbwhf"]
@@ -21,6 +22,7 @@ size = Vector3(0.7, 2, 0.8)
 
 [node name="NPC_test" type="CharacterBody3D" groups=["Operable Object"]]
 collision_layer = 4
+script = ExtResource("1_6fjjo")
 
 [node name="Area3D" type="Area3D" parent="."]
 collision_layer = 4

@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://bh27fq5ex8lc7"]
+[gd_scene load_steps=10 format=3 uid="uid://bh27fq5ex8lc7"]
 
 [ext_resource type="Script" uid="uid://8eyilq4lned1" path="res://Scenes/Game Scenes/Entities/Player Test/player_test.gd" id="1_3tgmv"]
 [ext_resource type="PackedScene" uid="uid://l4mmycy7qjm5" path="res://Scenes/Tools/Interact Ray/InteractRay.tscn" id="2_avobc"]
 [ext_resource type="PackedScene" uid="uid://dt70r74ob0d36" path="res://Assets/Fonts/ui_test.tscn" id="3_iuxqa"]
+[ext_resource type="Script" uid="uid://bdo7c01gj7ham" path="res://Common/State Managenment/StateMachine.gd" id="4_6dgn2"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ow6kc"]
 size = Vector3(0.7, 2, 0.8)
@@ -17,6 +18,15 @@ rim_enabled = true
 
 [sub_resource type="BoxMesh" id="BoxMesh_a6a0u"]
 size = Vector3(0.7, 2, 0.8)
+
+[sub_resource type="Animation" id="Animation_6dgn2"]
+resource_name = "IDLE"
+length = 2.0
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_87f5y"]
+_data = {
+&"IDLE": SubResource("Animation_6dgn2")
+}
 
 [node name="Player_test" type="CharacterBody3D" groups=["Operable Object"]]
 collision_layer = 2
@@ -52,3 +62,20 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="Control" parent="UI" instance=ExtResource("3_iuxqa")]
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("4_6dgn2")
+metadata/_custom_type_script = "uid://bdo7c01gj7ham"
+
+[node name="CoyoteTimer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[node name="JumpRequestTimer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_87f5y")
+}

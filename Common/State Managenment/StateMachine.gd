@@ -12,7 +12,7 @@ var current_state: int = -1:
 	set(v):#当current_state的值将要变化时，v=新值，此时current_state还未更新
 		# 状态变化时通知owner
 		# transition_state处理状态切换时的清理和初始化工作
-		owner.transtion_state(current_state, v)
+		owner.transition_state(current_state, v)
 		# 更新当前状态，这里赋值不会重新执行set()
 		current_state = v
 		state_time = 0
