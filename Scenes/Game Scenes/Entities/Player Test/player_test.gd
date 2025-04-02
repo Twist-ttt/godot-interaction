@@ -44,11 +44,11 @@ func move(delta: float) -> void:
 		jump_request_timer.start()
 	if not is_on_floor():
 		velocity.y -= GRAVITY * delta
-	else :
-		if Input.is_action_just_pressed("move_jump"):
-			jump_request_timer.stop()
-			print("jump")
-			velocity.y = JUMP_VELOCITY
+	#else :
+		#if Input.is_action_just_pressed("move_jump"):
+			#jump_request_timer.stop()
+			#print("jump")
+			#velocity.y = JUMP_VELOCITY
 			
 			
 	var input_dir = Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
@@ -116,11 +116,13 @@ func tick_physics(state: State, delta: float) -> void:
 func get_next_state(state: State) -> State:
 	var can_jump := is_on_floor() or coyote_timer.time_left > 0
 	var should_jump := can_jump and jump_request_timer.time_left > 0
-	if should_jump:
-		return State.JUMP
+	
 		
-	if state in GROUND_STATES and not is_on_floor():
-		return State.FALL
+	if state in GROUND_STATES:
+		if should_jump:
+			return State.JUMP
+		elif not is_on_floor():
+			return State.FALL
 	
 	var input_dir := Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
 	var is_still := input_dir.length_squared() < 0.0001 and is_zero_approx(velocity.x) and is_zero_approx(velocity.z)
@@ -138,7 +140,7 @@ func get_next_state(state: State) -> State:
 				return State.IDLE
 		
 		State.JUMP:
-			if velocity.y >= 0:
+			if velocity.y <= 0:
 				return State.FALL
 		
 		State.RUNNING:
