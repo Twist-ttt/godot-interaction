@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://bctk3s1t347or"]
+[gd_scene load_steps=8 format=3 uid="uid://bctk3s1t347or"]
 
 [ext_resource type="Script" uid="uid://bih1bw6rl7i73" path="res://Scenes/Game Scenes/Entities/NPC Test/npc_test.gd" id="1_6fjjo"]
 [ext_resource type="Script" uid="uid://hoxw4certtso" path="res://Scenes/Tools/Interact Ray/InteractAble.gd" id="1_lrvio"]
+[ext_resource type="PackedScene" uid="uid://l4mmycy7qjm5" path="res://Scenes/Tools/Interact Ray/InteractRay.tscn" id="2_k2de7"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fbwhf"]
 size = Vector3(0.7, 2, 0.8)
@@ -21,7 +22,7 @@ rim_enabled = true
 size = Vector3(0.7, 2, 0.8)
 
 [node name="NPC_test" type="CharacterBody3D" groups=["Operable Object"]]
-collision_layer = 4
+collision_layer = 6
 script = ExtResource("1_6fjjo")
 
 [node name="Area3D" type="Area3D" parent="."]
@@ -41,9 +42,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 material_override = SubResource("StandardMaterial3D_cwloc")
 mesh = SubResource("BoxMesh_yyplb")
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(-4.07061e-08, 0.364389, -0.931247, 1.5928e-08, 0.931247, 0.364389, 1, 0, -4.37114e-08, -2.87269, 2.71035, 0.00175786)
+[node name="Head" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+
+[node name="Camera3D" type="Camera3D" parent="Head"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="InteractRay" parent="Head/Camera3D" instance=ExtResource("2_k2de7")]
 
 [node name="InteractAble" type="Node" parent="."]
 script = ExtResource("1_lrvio")
 metadata/_custom_type_script = "uid://hoxw4certtso"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]

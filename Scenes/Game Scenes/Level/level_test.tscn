@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://qkkfqdw758fq"]
+[gd_scene load_steps=6 format=3 uid="uid://qkkfqdw758fq"]
 
 [ext_resource type="MeshLibrary" uid="uid://djmkikicn1jbw" path="res://Art/mesh/floor_test.tres" id="1_qcg60"]
 [ext_resource type="PackedScene" uid="uid://bh27fq5ex8lc7" path="res://Scenes/Game Scenes/Entities/Player Test/player_test.tscn" id="2_33a43"]
 [ext_resource type="PackedScene" uid="uid://bctk3s1t347or" path="res://Scenes/Game Scenes/Entities/NPC Test/npc_test.tscn" id="3_whtie"]
+[ext_resource type="Script" uid="uid://dafaihorrxgaa" path="res://Scenes/Tools/Character Manager/CharacterManager.gd" id="4_33a43"]
+[ext_resource type="PackedScene" uid="uid://buax1h4o8pj6d" path="res://Scenes/trigger.tscn" id="5_whtie"]
 
 [node name="level_test" type="Node3D"]
 
@@ -23,3 +25,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.97397, 0)
 
 [node name="NPC_test" parent="." instance=ExtResource("3_whtie")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.98016, 0, 0)
+
+[node name="CharacterManager" type="Node" parent="."]
+script = ExtResource("4_33a43")
+metadata/_custom_type_script = "uid://dafaihorrxgaa"
+
+[node name="trigger" parent="." groups=["Operable Object"] instance=ExtResource("5_whtie")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 1, 0)

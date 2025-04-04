@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://buax1h4o8pj6d"]
+
+[ext_resource type="Script" uid="uid://b537yt45chh7k" path="res://Config/EventTrigger.gd" id="1_vcq5i"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qcxdk"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vcq5i"]
+albedo_color = Color(0.741176, 0, 0, 1)
+metallic = 0.46
+roughness = 0.5
+emission_enabled = true
+emission = Color(0.513726, 0, 0, 1)
+rim_enabled = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_ueehy"]
+
+[node name="EventTrigger_test1" type="Node3D"]
+script = ExtResource("1_vcq5i")
+display_name = "事件1"
+
+[node name="trigger" type="StaticBody3D" parent="."]
+collision_layer = 15
+collision_mask = 15
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="trigger"]
+shape = SubResource("BoxShape3D_qcxdk")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="trigger"]
+material_override = SubResource("StandardMaterial3D_vcq5i")
+mesh = SubResource("BoxMesh_ueehy")
+skeleton = NodePath("")
